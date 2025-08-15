@@ -11,10 +11,6 @@ import (
 // Реализовать набор из N воркеров, которые читают данные из этого канала и выводят их в stdout.
 // Программа должна принимать параметром количество воркеров и при старте создавать указанное число горутин-воркеров.
 
-func WriteToChannel(ch chan string) {
-	ch <- "Write to channel"
-}
-
 func main() {
 	args := os.Args
 	if len(args) < 2 {
@@ -29,7 +25,7 @@ func main() {
 		go ReadFromChannel(i, ch)
 	}
 	for {
-		go WriteToChannel(ch)
+		ch <- "info that wrote in main goroutine"
 	}
 
 }
@@ -38,5 +34,4 @@ func ReadFromChannel(i int, ch chan string) {
 	for {
 		fmt.Println("Read from goroutine number :", i, " ", <-ch)
 	}
-
 }
