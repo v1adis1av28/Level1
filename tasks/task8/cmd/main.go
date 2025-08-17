@@ -27,3 +27,9 @@ func SetBit(num int64, index, value int) int64 {
 		return num &^ (1 << index)
 	}
 }
+
+// go run main.go
+// 10
+// 14
+// 10
+// 11
