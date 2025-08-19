@@ -28,6 +28,6 @@ func partition(arr []int, low, high int) ([]int, int) {
 	return arr, i
 }
 func main() {
-	testArr := []int{3, -11, 73, 442, 1, 10}
+	testArr := []int{3, 1, 10}
 	fmt.Println(quickSort(testArr, 0, len(testArr)-1))
 }
